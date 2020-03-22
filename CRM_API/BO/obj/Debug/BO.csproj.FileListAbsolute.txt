@@ -1,0 +1,6 @@
+C:\Users\Bilal Khan\source\repos\CRM\CRM_API\BO\bin\Debug\BO.exe
+C:\Users\Bilal Khan\source\repos\CRM\CRM_API\BO\bin\Debug\BO.pdb
+C:\Users\Bilal Khan\source\repos\CRM\CRM_API\BO\obj\Debug\BO.csproj.CoreCompileInputs.cache
+C:\Users\Bilal Khan\source\repos\CRM\CRM_API\BO\obj\Debug\BO.exe
+C:\Users\Bilal Khan\source\repos\CRM\CRM_API\BO\obj\Debug\BO.pdb
+C:\Users\Bilal Khan\source\repos\CRM\CRM_API\BO\obj\Debug\BO.csprojAssemblyReference.cache

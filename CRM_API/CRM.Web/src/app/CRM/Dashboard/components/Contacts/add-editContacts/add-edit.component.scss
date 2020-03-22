@@ -1,0 +1,192 @@
+
+$blue:#465294;
+$color:rgba(0,0,0,.54);
+@mixin card() {
+    width:100%;
+    padding:20px;
+    box-shadow:1px 1px 5px rgba(0,0,0,0.1), -1px -1px 5px rgba(0,0,0,0.1);
+}
+.transparent {
+    background:transparent;
+        border:none;
+        outline:none;
+
+        &:focus {
+            outline:none;
+            background:transparent;
+        }
+}
+.nav-buttons {
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+    strong {
+        font-size:30px;
+        text-transform: uppercase;
+        
+    }
+    li {
+     button   {
+    background:transparent;
+    border:none;
+    padding:5px;
+    position: relative;
+    color: rgba(0,0,0,.54);
+        i.fa {
+            font-size:20px;
+            width:25px;
+        }
+
+    i.fa-lock {
+        font-size: 12px;
+        padding: 5px;
+        border-radius: 50%;
+        top: 11px;
+        background: #ddd;
+        z-index: 1;
+        position: absolute;
+        left: 20px;
+        width: 18px;
+        height: 18px;
+        line-height: 9px;
+    }
+     
+    &:hover {
+        color:#202020;    
+     }
+     &:focus {
+         outline: none;
+     }
+
+     
+        } 
+       .box {
+           display:inline-block;
+           width:15px;
+           height:15px;
+           background: linear-gradient(to top right, #2cc3ff, #15f8bf);
+           background: -webkit-linear-gradient(to top right, #2cc3ff, #15f8bf);
+       
+       }  
+    }
+}
+.contact-details {
+    color:$color;
+    @include card();
+}
+.contact-detail-contents {
+    display: flex;
+    position: relative;
+    margin-bottom: 20px;
+    
+    button {
+        background:transparent;
+        border:none;
+        outline:none;
+
+        &:focus {
+            outline:none;
+        }
+    }
+    .setting-ico {
+        position: absolute;
+        top:-10px;
+        right:0px;
+        
+
+        i.fa {
+            font-size:24px;
+        }
+        .setting-btn {
+            background:transparent;
+            border:none;
+            padding:5px;
+            border-radius:100%;
+            &:focus {
+                outline:none;
+                border:none;
+                background:none;
+            }
+            &:hover {
+                background:#d3d3d3;
+            }
+        }
+    }
+}
+.ac-name-initial {
+    width:72px;
+    height:72px;
+    margin-right:20px;
+    background-color: #424242;
+    color:#fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius:50%;
+    font-size:#fff;
+    
+
+    span {
+        font-size:32px;
+    }
+
+}
+.options-list {
+    padding:10px 20px;
+}
+.contact-details {
+    label {
+        color:$blue;
+        font-size:16px;
+    }
+    .flex-main-wraper {
+        display:grid;
+        grid-template-columns: auto auto;
+        row-gap: 20px;
+
+        i.fa {
+            margin-right:15px;
+            font-size:20px;
+        }
+    }
+    .address-group {
+        display: grid;
+        grid-template-columns: auto auto auto;        
+    }
+
+}
+.card {
+    @include card();
+}
+.button-groups {
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+.new-line {
+    display: flex;
+    justify-content:flex-start;
+    margin-right:15px;
+    align-items: center;
+    margin-bottom:15px;
+}
+.mr-15 {
+    margin-right:15px;
+}
+.show-items {
+    display: flex;
+    justify-content: flex-end;
+
+}
+.btn {
+    text-transform: uppercase;
+}
+
+.task-detail-container {
+    margin:20px 0;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    margin-left: 5px;
+  }

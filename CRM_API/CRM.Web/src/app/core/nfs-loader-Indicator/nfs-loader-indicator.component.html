@@ -1,0 +1,9 @@
+
+<!-- <div class="loader-indicator" [hidden]="!isLoading" >
+  <div class="loader"> </div>
+</div> -->
+<!-- <span>{{isLoading}}</span> -->
+
+<div *ngIf="spinner.isVisible() | async" class="loader-indicator">
+	<div class="loader"> </div>
+</div>

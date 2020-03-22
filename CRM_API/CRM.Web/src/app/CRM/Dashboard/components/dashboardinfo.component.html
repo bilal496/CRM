@@ -1,0 +1,281 @@
+
+      <div class="row">
+        <div class="col-md-3 animated fadeIn">
+          <div class="card card-block tip-card">
+            <div class="tip-msg">
+              <h3> Contacts</h3>
+              <span>{{contacts}}</span>
+            </div>
+            <button class="tip-ico tip-ico-primary" 
+                    [disabled] = "conDisabled"
+                    (click)="redirect('contacts')">
+              <i class="fa fa-group fa-fw"></i>
+            </button>
+          </div>
+        </div>
+        <div class="col-md-3 animated fadeIn">
+          <div class="card card-block tip-card">
+            <div class="tip-msg">
+              <h3> Tasks</h3>
+              <span>{{tasks}}</span>
+            </div>
+            <button class="tip-ico tip-ico-info" 
+                    [disabled] = "taskDisabled"
+                    (click)="redirect('tasks')">
+              <i class="fa fa-comments fa-fw"></i>
+            </button>
+          </div>
+        </div>
+        <div class="col-md-3 animated fadeIn">
+          <div class="card card-block tip-card">
+            <div class="tip-msg">
+              <h3> Compaigns</h3>
+              <span>{{compaigns}}</span>
+            </div>
+            <button class="tip-ico tip-ico-success" 
+                    [disabled] = "comDisabled"
+                    (click)="redirect('compaigns')">
+              <i class="fa fa-envelope fa-fw"></i>
+            </button>
+          </div>
+        </div>
+        <div class="col-md-3 animated fadeIn">
+          <div class="card card-block tip-card">
+            <div class="tip-msg">
+              <h3>Feedback</h3>
+              <span>{{feedbacks}}</span>
+            </div>
+            <button class="tip-ico tip-ico-danger" 
+                    [disabled] = "feedDisabled"
+                    (click)="redirect('feedbacks')">
+              <i class="fa fa-warning fa-fw"></i>
+            </button>
+          </div>
+        </div>
+         </div>
+        <!-- <div class="col-md-4">
+          <card cardTitle='Bar Chart' isCollapse="true">
+            <div echarts [options]="PieOption" [loading]="showloading" theme="dark" class="demo-chart"></div>          </card>
+        </div>
+        <div class="col-md-4">
+          <card cardTitle="Todo List" isCollapse="true">
+            <div echarts [options]="PieOption" [loading]="showloading" theme="dark" class="demo-chart"></div>
+          </card>
+        </div>
+        <div class="col-md-4">
+          <card cardTitle="Todo List" isCollapse="true">
+            <div echarts [options]="PieOption" [loading]="showloading" theme="dark" class="demo-chart"></div>
+          </card>
+        </div> -->
+        <!-- <div>
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          &nbsp;
+        </div>
+        <div  style="--tag-color:#235EA1;">
+            <h3 style="margin-left:1%;">
+              TASKS
+            </h3>
+
+        &nbsp;&nbsp;&nbsp;
+      </div>
+        <div>
+          <button type="button" class="btn btn-primary btn-lg taskbutton" >CREATE TASKS</button>
+          <div class="btn-group">
+              <button type="button" class="btn btn-success dropdown-toggle actionbtn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                CURRENT
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="#">Current</a>
+                </li>
+                <li>
+                  <a href="#">All Upcomming</a>
+                </li>
+                <li>
+                  <a href="#">Overdue</a>
+                </li>
+                <li role="separator" class="divider"></li>
+                <li>
+                  <a href="#">Separated link</a>
+                </li>
+              </ul>
+          </div>
+          <div class="btn-group">
+            <button type="button" class="btn btn-success dropdown-toggle actionbtn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              MY TASKS
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="#">Current</a>
+              </li>
+              <li>
+                <a href="#">All Upcomming</a>
+              </li>
+              <li>
+                <a href="#">Overdue</a>
+              </li>
+              <li role="separator" class="divider"></li>
+              <li>
+                <a href="#">Separated link</a>
+              </li>
+            </ul>
+        </div>
+        </div>
+        <div>
+          &nbsp;
+          &nbsp;
+          &nbsp;
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <card >
+              <table class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>FIRSTNAME</th>
+                    <th>LASTNAME</th>
+                    <th>USERNAME</th>
+                    <th>EMAIL</th>
+                    <th>AGE</th>
+                    <th>STATE</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of tableData | paginate: { id: 'pager', itemsPerPage: pageSize, currentPage: pageNumber};let index = index">
+                    <td>{{item.firstName}}</td>
+                    <td>{{item.lastName}}</td>
+                    <td>{{item.username}}</td>
+                    <td>{{item.email}}</td>
+                    <td>{{item.age}}</td>
+                    <td>
+                      <span class="label label-info">info</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <form class="pagination-wrapper">
+                <div class="form-group pages">
+                  <pagination-controls class="my-pagination" id="pager" (pageChange)="pageChanged($event)" maxSize="9" directionLinks="true"
+                    autoHide="true" previousLabel="Prev" nextLabel="Next" screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page"
+                    screenReaderCurrentLabel="You're on page">
+                  </pagination-controls>
+                </div>
+                <div class="form-group options pages">
+                  <div class="input-group input-group-sm">
+                    <select class="form-control" name="pageChangedName" [(ngModel)]="pageSize" (ngModelChange)="loadData()">
+                      <option>1</option>
+                      <option>5</option>
+                      <option>10</option>
+                      <option>20</option>
+                      <option>50</option>
+                      <option>100</option>
+                      <option>200</option>
+                    </select>
+                    <span class="input-group-addon addon-right">Per Page</span>
+                  </div>
+                </div>
+              </form>
+            </card>
+          </div>
+        </div>
+
+        <div>
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          &nbsp;
+        </div>
+        <div  style="--tag-color:#235EA1;">
+            <h3 style="margin-left:1%;">
+              EVENTS
+            </h3>
+
+        &nbsp;&nbsp;&nbsp;
+      </div>
+        <div>
+          <button type="button" class="btn btn-primary btn-lg taskbutton" >CREATE EVENT</button>
+          <div class="btn-group">
+              <button type="button" class="btn btn-success dropdown-toggle actionbtn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                ALL
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="#">Current</a>
+                </li>
+                <li>
+                  <a href="#">All Upcomming</a>
+                </li>
+                <li>
+                  <a href="#">Overdue</a>
+                </li>
+                <li role="separator" class="divider"></li>
+                <li>
+                  <a href="#">Separated link</a>
+                </li>
+              </ul>
+          </div>
+          <div>
+            &nbsp;
+            &nbsp;
+            &nbsp;
+          </div>
+        <div class="row">
+          <div class="col-md-12">
+            <card >
+              <table class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>FIRSTNAME</th>
+                    <th>LASTNAME</th>
+                    <th>USERNAME</th>
+                    <th>EMAIL</th>
+                    <th>AGE</th>
+                    <th>STATE</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of tableData | paginate: { id: 'pager', itemsPerPage: pageSize, currentPage: pageNumber};let index = index">
+                    <td>{{item.firstName}}</td>
+                    <td>{{item.lastName}}</td>
+                    <td>{{item.username}}</td>
+                    <td>{{item.email}}</td>
+                    <td>{{item.age}}</td>
+                    <td>
+                      <span class="label label-info">info</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <form class="pagination-wrapper">
+                <div class="form-group pages">
+                  <pagination-controls class="my-pagination" id="pager" (pageChange)="pageChanged($event)" maxSize="9" directionLinks="true"
+                    autoHide="true" previousLabel="Prev" nextLabel="Next" screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page"
+                    screenReaderCurrentLabel="You're on page">
+                  </pagination-controls>
+                </div>
+                <div class="form-group options pages">
+                  <div class="input-group input-group-sm">
+                    <select class="form-control" name="pageChangedName" [(ngModel)]="pageSize" (ngModelChange)="loadData()">
+                      <option>1</option>
+                      <option>5</option>
+                      <option>10</option>
+                      <option>20</option>
+                      <option>50</option>
+                      <option>100</option>
+                      <option>200</option>
+                    </select>
+                    <span class="input-group-addon addon-right">Per Page</span>
+                  </div>
+                </div>
+              </form>
+            </card>
+          </div>
+        </div> -->
+
+
+<loading [loading]="false"></loading>

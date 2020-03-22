@@ -1,0 +1,109 @@
+<div class="container1">
+  <div class="slider-container" style="height: inherit;">
+    <div class="slider-title">
+      <nav class="navbar navbar-light" style="background-color: #4576bc; width:100%;height: 81px; border-radius: 0px !important;">
+        <div class="v-toolbar__content" style="height:64px;">
+        <div class="v-toolbar__title">
+          <span>Create My Task </span>
+          </div>
+          </div>
+          <!-- Navbar content -->
+        </nav>
+  </div>
+  <div style="overflow: scroll; padding: 2%;">
+    <div class="row" style="margin-top:2%;">
+      <div class="col-md-6">Category</div>
+        <div class="col-md-6">status</div>
+      </div>
+      <div class="row" style="margin-top: 1%;">
+        <div class="col-md-6">
+          <div class="form-group">
+            <i class="fa fa-user icon"> </i>
+            <select class="form-control" 
+                    id="combo" 
+                    style="display:inline-flex;"
+                    [(ngModel)]="this.task.Category">
+                <option value="0" selected>Category</option>
+                <option *ngFor="let category of this.categoryList" value="{{category.DataValue}}">
+                  {{category.DisplayName}}
+                </option>
+            </select>
+         </div>
+        </div>
+        <div class="col-md-6">
+          <div class="col-md-3" style="margin-top:2%;">
+            <input type="radio" name="status" value="1" [(ngModel)]="this.task.Status"> Completed
+          </div>
+          <div class="col-md-3" style="margin-top:2%;">
+            <input type="radio" name="status" value="2" [(ngModel)]="this.task.Status"> Not Completed
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <i class="fa fa-comment icon"></i>
+          <input type="email" class="form-control" id="email" 
+                 placeholder="what you would like to be reminded of ?"
+                 [(ngModel)]="this.task.Description"
+                tabindex="2" required
+                style="margin-left: 1%;">
+        </div>
+      </div>
+    <div class="row" style="margin-top:3%;">
+      <div class="col-md-12">
+        <i class="fa fa-comments icon"></i>
+        <textarea id="w3mission" rows="4" cols="72" 
+                  style="margin-left: 1%;"
+                  [(ngModel)]="this.task.Notes">At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies.
+        </textarea>
+      </div>
+    </div>
+    <div class="row" style="margin-top:3%;">
+      <div class="col-md-6">
+        <i class="fa fa-user icon"></i>
+        <select class="form-control" 
+                id="ddlAssignTo" 
+                style="display:inline-flex;"
+                [(ngModel)]="this.task.AssignTo">
+          <option value="0" disabled selected>Assigned To</option>
+          <option *ngFor="let assign of this.assigneToList" value="{{assign.DataValue}}">
+            {{assign.DisplayName}}
+          </option>
+        </select>
+      </div>
+      <div class="col-md-6">
+        <input type="checkbox" [(ngModel)]="this.task.NotifyAssignee"> Notify Assignee
+      </div>
+    </div>
+      <div class="row" style="margin-top:3%;">
+        <div class="col-md-12">
+          <label style="display:block; margin-left:7%;">Reminder</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <i class="fa fa-bell icon"></i>
+          <input type="radio" value="1" name="reminder" [(ngModel)]="this.task.Reminder"> None
+          <input type="radio" value="2" name="reminder" [(ngModel)]="this.task.Reminder"> Email
+          <input type="radio" value="3" name="reminder" [(ngModel)]="this.task.Reminder"> Call
+          <input type="radio" value="4" name="reminder" [(ngModel)]="this.task.Reminder"> Text
+        </div>
+      </div>
+      <div class="row" style="margin-top:3%;">
+        <div class="col-md-12">
+          <i class="fa fa-calendar icon"></i>
+          <input type="date"
+                 placeholder="Due Date"
+                 [(ngModel)]="this.task.DueDate">
+        </div>
+      </div>
+      <div class="row" style="margin-top:5%;">
+        <div class="col-md-12">
+          <button type="button" class="btn btn-primary btn-lg taskbutton"  
+                  style="margin-right:3%;"
+                  (click)="AddTask()">CREATE TASK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

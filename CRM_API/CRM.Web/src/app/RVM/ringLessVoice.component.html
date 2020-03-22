@@ -1,0 +1,233 @@
+<!-- 
+<nav class="navbar navbar-expand-lg fixed-top navbar-transparent" color-on-scroll="500">
+    <div class="container">
+        <div class="navbar-translate">
+            <a class="navbar-brand" href="https://www.theautomatedrei.com/">RVM</a>
+            <button class="navbar-toggler navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation" (click)="sidebarToggle()">
+                <span class="navbar-toggler-bar"></span>
+                <span class="navbar-toggler-bar"></span>
+                <span class="navbar-toggler-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse" id="navbarToggler">
+        </div>
+    </div>
+</nav> -->
+
+<div class="page-header" data-parallax="true" style="background-image: url('~/../assets/images/daniel-olahh.jpg');">
+    <div class="filter"></div>
+    <div class="container">
+        <div class="motto text-center">
+            <h1>RVM</h1>
+            <h3>RINGLESS VOICE MAIL STARTS HERE.</h3>
+            <br />
+            <a href="https://www.theautomatedrei.com/" style="margin-right: 5px;" class="btn btn-outline-neutral btn-round">
+                <i style="margin-right: 5px;" class="fa fa-play"></i>Watch video</a>
+            <button type="button" class="btn btn-outline-neutral btn-round">Start</button>
+        </div>
+    </div>
+</div>
+<div class="main">
+    <div class="section text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 mr-auto ml-auto">
+                <h2 class="title">Let's send voice mail</h2>
+                <h5 class="description">Ringless voicemail, also called a voicemail drop, is a method in which a pre-recorded audio message is placed in a voicemail inbox without the associated telephone ringing first. This practice is commonly associated with spamming and debt collection services.</h5>
+                <br>
+                <div>
+                    <label>Audio:</label>
+                    <select class="form-control" 
+                            name="filesList" 
+                            [(ngModel)]="selectedfile"
+                            [ngModelOptions]="{standalone: true}">
+                      <option value="0" selected>--Select--</option>
+                      <option *ngFor="let file of FilesList" value="{{ file.value }}">
+                        {{file.key}}
+                      </option>
+                    </select>
+                  </div>
+                  <br/>
+                <button type="button" (click)="startRecording()" class="btn btn-danger btn-round" style="margin-right: 1%;">Start Recording</button>
+
+                <button type="button" (click)="stopRecording()" class="btn btn-danger btn-round">Stop Recording</button>
+
+
+            </div>
+        </div>
+        <br/><br/>
+        <div class="row">
+            <div class="col-md-12">
+                <audio *ngFor="let audio of audioFiles" controls='true' [src]="audio"></audio>
+                
+            </div>
+        </div>
+        &nbsp;&nbsp;&nbsp;
+        <div class="row">
+        <div class="col-sm-1">
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group has-success">
+                <input type="text" 
+                       class="form-control form-control-success" 
+                       [(ngModel)]="fromNo" 
+                       onfocus="this.placeholder = ''"
+                       onblur="this.placeholder = 'From Number'"
+                       id="txtFromNo" 
+                       placeholder="From Number">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group has-success">
+                <input type="text" 
+                       class="form-control form-control-success" 
+                       [(ngModel)]="toNo" 
+                       onfocus="this.placeholder = ''"
+                       onblur="this.placeholder = 'To Number'"
+                       id="txtToNo" 
+                       placeholder="To Number">
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="form-group has-success">
+                <button type="button" 
+                       class="btn btn-outline-success btn-round"
+                       (click)="sendVoiceMail()">SEND Voice Mail</button>
+            </div>
+        </div>
+        <div class="col-sm-1">
+        </div>
+        </div>
+    </div>
+</div>
+
+<div class="section section-dark text-center">
+    <div class="container">
+        <h2 class="title">Let's talk about us</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card card-profile card-plain">
+                    <div class="card-avatar">
+                        <a href="#avatar"><img src="~/../assets/images/faces/clem-onojeghuo-3.jpg" alt="..."></a>
+                    </div>
+                    <div class="card-block">
+                        <a href="#paper-kit">
+                            <div class="author">
+                                <h4 class="card-title">Micheal Batista</h4>
+                                <h6 class="card-category">CEO </h6>
+                            </div>
+                        </a>
+                        <p class="card-description text-center">
+                        Teamwork is so important that it is virtually impossible for you to reach the heights of your capabilities or make the money that you want without becoming very good at it.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card card-profile card-plain">
+                    <div class="card-avatar">
+                        <a href="#avatar"><img src="~/../assets/images/faces/clem-onojeghuo-3.jpg" alt="..."></a>
+                    </div>
+                    <div class="card-block">
+                        <a href="#paper-kit">
+                            <div class="author">
+                                <h4 class="card-title">Bilal</h4>
+                                <h6 class="card-category">Developer</h6>
+                            </div>
+                        </a>
+                        <p class="card-description text-center">
+                        A group becomes a team when each member is sure enough of himself and his contribution to praise the skill of the others. No one can whistle a symphony. It takes an orchestra to play it.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card card-profile card-plain">
+                    <div class="card-avatar">
+                        <a href="#avatar"><img src="~/../assets/images/faces/erik-lucatero-2.jpg" alt="..."></a>
+                    </div>
+                    <div class="card-block">
+                        <a href="#paper-kit">
+                            <div class="author">
+                                <h4 class="card-title">Haris Saeed</h4>
+                                <h6 class="card-category">Developer</h6>
+                            </div>
+                        </a>
+                        <p class="card-description text-center">
+                        The strength of the team is each individual member. The strength of each member is the team. If you can laugh together, you can work together, silence isn’t golden, it’s deadly.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section landing-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mr-auto ml-auto">
+                <h2 class="text-center">Keep in touch?</h2>
+                <form class="contact-form">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Name</label>
+                            <!-- <div class="input-group" [ngClass]="{'input-group-focus':focus===true}">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text"><i class="nc-icon nc-single-02"></i></span>
+                                </div> -->
+                                <input type="text" class="form-control" 
+                                        placeholder="Name" 
+                                        (focus)="focus=true" 
+                                        (blur)="focus=false" >
+                            <!-- </div> -->
+                        </div>
+                        <div class="col-md-6">
+                            <label>Email</label>
+                            <!-- <div class="input-group" [ngClass]="{'input-group-focus':focus1===true}">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text">  <i class="nc-icon nc-email-85"></i></span>
+                                </div> -->
+                                <input type="text" class="form-control" placeholder="Email" (focus)="focus1=true" (blur)="focus1=false" >
+                            <!-- </div> -->
+                        </div>
+                    </div>
+                    <label>Message</label>
+                    <textarea class="form-control" rows="4" placeholder="Tell us your thoughts and feelings..."></textarea>
+                    <div class="row">
+                        <div class="col-md-12 mr-auto ml-auto">
+                            <button style="margin-top: 20px; float: right;" class="btn btn-danger btn-lg btn-fill">Send Message</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<footer class="footer">
+<div class="container">
+    <div class="row" style="background-color: #1A1817;">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-4">
+            <nav class="footer-nav">
+                <ul>
+                    <li><a href="https://theautomatedrei.com">Automatedrei </a></li>
+                    <li><a href="http://theautomatedrei.com">Blog</a></li>
+                    <li><a href="https://theautomatedrei.com">Licenses</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="credits ml-auto col-md-4">
+            <span class="copyright" style="float: right; color: white;">
+                © {{currentDate | date: 'yyyy'}}, made with <i class="fa fa-heart heart"></i> by Automatedrei 
+            </span>
+        </div>
+        <div class="col-md-2">
+        </div>
+    </div>
+</div>
+</footer>

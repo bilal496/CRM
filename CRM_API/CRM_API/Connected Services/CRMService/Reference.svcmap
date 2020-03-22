@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="6808e4bc-c7d8-41a3-809b-f30e25d32307" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:49279/CRM.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CRM.xsd" MetadataType="Schema" ID="d86e6dd7-cdb6-42e3-a052-8c9fc36e57e1" SourceId="1" SourceUrl="http://localhost:49279/CRM.svc?xsd=xsd0" />
+    <MetadataFile FileName="CRM1.xsd" MetadataType="Schema" ID="1eeff0f7-0a6f-4b9a-aa57-fadfa20c1698" SourceId="1" SourceUrl="http://localhost:49279/CRM.svc?xsd=xsd2" />
+    <MetadataFile FileName="CRM2.xsd" MetadataType="Schema" ID="0817054b-55af-48a4-a196-1e0e7288912a" SourceId="1" SourceUrl="http://localhost:49279/CRM.svc?xsd=xsd1" />
+    <MetadataFile FileName="CRM.wsdl" MetadataType="Wsdl" ID="febf0ef8-e03c-4189-9bf7-95217786e9ea" SourceId="1" SourceUrl="http://localhost:49279/CRM.svc?wsdl" />
+    <MetadataFile FileName="CRM.disco" MetadataType="Disco" ID="7f8bf30c-bfcf-40d9-b9b1-5dc5a71e62e0" SourceId="1" SourceUrl="http://localhost:49279/CRM.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

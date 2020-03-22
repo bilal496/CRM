@@ -1,0 +1,277 @@
+<div>
+  <button type="button" 
+          class="btn btn-primary btn-lg taskbutton" 
+          data-toggle="modal" 
+          data-target="#exampleModalScrollable">CREATE CONTACT</button>
+          &nbsp;
+  <div class="btn-group">
+      <button type="button" 
+              class="btn btn-success dropdown-toggle actionbtn" 
+              data-toggle="dropdown" 
+              aria-haspopup="true" 
+              aria-expanded="false">
+        <i class="fa fa-upload" style="font-size:28px"></i>
+        IMPORT
+      </button>
+  </div>
+</div>
+<div>
+  &nbsp;
+  &nbsp;
+  &nbsp;
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <card>
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>Owner</th>
+            <th>Hotness</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Tags</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of tableData | paginate: { id: 'pager', itemsPerPage: pageSize, currentPage: pageNumber};let index = index">
+            <td>{{item.FirstName}} &nbsp; {{item.LastName}}</td>
+            <td><a href="#" class="badge badge-danger">Warm</a></td>
+            <td><a [routerLink]="" (click)="editContact(item.ContactID)">{{item.FirstName}}</a></td>
+            <td>{{item.PrimaryEmail}}</td>
+            <td>{{item.MobileNo}}</td>
+            <td>
+              <span class="label label-info">info</span>
+            </td>
+            <td>New</td>
+            <td>
+              <div style="float: left;">
+                <span class="iconhover" title="Click to Call" (click)="call(item.MobileNo)">
+                  <i style="font-size: 20px;margin-left: 10px;margin-right: 10px;" class="fa fa-phone icon"></i>
+                </span>
+              </div>
+              <div>
+                <span class="iconhover" title="Click to Text" (click)="text(item.MobileNo)">
+                  <i style="font-size: 20px;" class="fa fa-envelope"></i></span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+        <div class="form-group pages">
+          <pagination-controls class="my-pagination" id="pager" (pageChange)="pageChanged($event)" maxSize="9" directionLinks="true"
+            autoHide="true" previousLabel="Prev" nextLabel="Next" screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page"
+            screenReaderCurrentLabel="You're on page">
+          </pagination-controls>
+        </div>
+        <div class="form-group options pages">
+          <div class="input-group input-group-sm">
+            <select class="form-control" 
+                    [(ngModel)]="pageSize" 
+                    (ngModelChange)="loadData()">
+              <option>1</option>
+              <option>5</option>
+              <option>10</option>
+              <option>20</option>
+              <option>50</option>
+              <option>100</option>
+              <option>200</option>
+            </select>
+            <span class="input-group-addon addon-right">Per Page</span>
+          </div>
+        </div>
+    </card>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalScrollable" 
+     tabindex="-1" 
+     role="dialog" 
+     aria-labelledby="exampleModalScrollableTitle" 
+     aria-hidden="true">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title heading" id="exampleModalScrollableTitle">CREATE CONTACT </h3>
+        <button type="button" #closebutton class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body modal-dialog modal-dialog-scrollable" style="overflow-y: auto; width:598px">
+        <div class="form-group">
+          <i class="fa fa-user icon"> </i>
+            <input type="text" 
+                   class="form-control" 
+                   id="fname" 
+                   name="firstName"
+                   placeholder="First Name" 
+                   tabindex="1" 
+                   required
+                   [(ngModel)]="this.addContact.FirstName">
+          </div>
+          <div class="form-group">
+            <i class="fa fa-user icon"> </i>
+              <input type="text" 
+                     class="form-control" 
+                     id="lname" 
+                     name="lastName"
+                     placeholder="Last Name" 
+                     tabindex="1" 
+                     required
+                     [(ngModel)]="this.addContact.LastName">
+          </div>
+          <div class="form-group">
+            <i class="fa fa-envelope icon"></i>
+            <input type="email" 
+                  class="form-control" 
+                  id="pemail" 
+                  name="primaryEmail"
+                  placeholder="Primary Email" 
+                  tabindex="2" 
+                  required
+                  [(ngModel)]="this.addContact.PrimaryEmail">
+        </div>
+        <div class="form-group">
+          <i class="fa fa-envelope icon"></i>
+          <input type="email" 
+                class="form-control" 
+                id="semail" 
+                name="secondaryEmail"
+                placeholder="Secondary Email" 
+                tabindex="2" 
+                required
+                [(ngModel)]="this.addContact.SecondaryEmail">
+        </div>
+        <div class="form-group">
+          <i class="fa fa-mobile icon"></i>
+          <input type="number" 
+                class="form-control" 
+                id="mobileNo" 
+                name="mobileNo"
+                placeholder="Mobile Number" 
+                tabindex="2" 
+                required
+                [(ngModel)]="this.addContact.MobileNo">
+      </div>
+      <div class="form-group">
+        <i class="fa fa-phone icon"> </i>
+        <input type="number" 
+                class="form-control" 
+                id="homeNo"
+                name="homeNo" 
+                placeholder="Home Number" 
+                tabindex="2" 
+                required
+                [(ngModel)]="this.addContact.HomeNo">
+      </div>
+      <div class="form-group">
+        <i class="fa fa-phone icon"> </i>
+        <input type="email" 
+                class="form-control" 
+                id="officeNo"
+                name="officeNo" 
+                placeholder="Office Number " 
+                tabindex="2" 
+                required
+                [(ngModel)]="this.addContact.OfficeNo">
+      </div>
+      <div class="form-group">
+        <i class="fa fa-building icon"></i>
+        <input type="email" 
+                class="form-control" 
+                id="company"
+                name="company"
+                placeholder="Company" 
+                tabindex="2" 
+                required
+                [(ngModel)]="this.addContact.Company">
+      </div>
+      <div class="form-group">
+        <i class="fa fa-birthday-cake icon"> </i>
+        <input type="date" 
+              class="form-control" 
+              id="birthdate"
+              name="birthdate"
+              placeholder="Birthday" 
+              tabindex="2" 
+              required
+              [(ngModel)]="this.addContact.BirthDate">
+      </div>
+
+
+
+      
+      <h2>Additional Information</h2>
+      
+        <div class="form-group">
+          <i class="fas fa-arrow-down icon"></i>
+        <select class="form-control" 
+                name="contactSource" 
+                [(ngModel)]="this.addContact.Source"
+                [ngModelOptions]="{standalone: true}">
+          <option value="0" selected>Contact Source</option>
+          <option *ngFor="let contact of this.contactSourceList" value="{{contact.DataValue}}">
+            {{contact.DisplayName}}
+          </option>
+          </select>
+        </div>
+        <div class="form-group">
+          <i class="fas fa-info-circle icon"> </i>
+        <select class="form-control" 
+                name="contactSource"
+                [(ngModel)]="this.addContact.Status" 
+                [ngModelOptions]="{standalone: true}">
+            <option value="0" selected>Contact Status</option>
+            <option *ngFor="let contact of this.contactStatusList" value="{{contact.DataValue}}">
+              {{contact.DisplayName}}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <i class="fab fa-hotjar icon"></i>
+        <select class="form-control" 
+                name="hotnessLevel"
+                [(ngModel)]="this.addContact.HotnessLevel"
+                [ngModelOptions]="{standalone: true}">
+            <option value="0" selected>Hotness Level</option>
+            <option *ngFor="let contact of this.hotnessLevelList" value="{{contact.DataValue}}">
+              {{contact.DisplayName}}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <i class="fa fa-user icon"> </i>
+          <select class="form-control" 
+                  name="assignedUser"
+                  [(ngModel)]="this.addContact.AssignedUser"
+                  [ngModelOptions]="{standalone: true}">
+            <option value="0" selected>Assigned User</option>
+            <option *ngFor="let contact of this.assignedUserList" value="{{contact.DataValue}}">
+              {{contact.DisplayName}}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <i class="far fa-comment-dots icon"></i>
+          <input type="email" 
+                  class="form-control" 
+                  id="comments"
+                  name="comments"
+                  placeholder="Comments" 
+                  tabindex="2" 
+                  required
+                  [(ngModel)]="this.addContact.Comments">
+        </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="save()">Save changes</button>
+      </div>
+  </div>
+</div>

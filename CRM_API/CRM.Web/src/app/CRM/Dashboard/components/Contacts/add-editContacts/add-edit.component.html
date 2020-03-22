@@ -1,0 +1,528 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="contact-menu">
+
+        <ul class="nav-buttons">
+          <li><strong>  Contact Details </strong></li>
+          <li><button data-toggle="tooltip" title="Email"><i class="fa fa-envelope"></i> 
+            <sub style="    right: 29px;bottom: 8px;"><i class="fa fa-lock"></i></sub></button></li>
+          <li><button data-toggle="tooltip" title="SMS"><i class="fa fa-mobile-alt"></i></button></li>
+          <li><button data-toggle="tooltip" title="Add Events"><i class="fa fa-calendar-alt"></i></button></li>
+          <li><button data-toggle="tooltip" title="Call"><i class="fa fa-phone"></i></button></li>
+          <li><button data-toggle="tooltip" title="Add Task"><i class="fa fa-calendar-plus"></i></button></li>
+          <li><button data-toggle="tooltip" title="Start Compaign"><i class="fa fa-fighter-jet"></i> 
+            <sub><i class="fa fa-lock"></i></sub>
+            </button></li>
+
+            <div class="btn-group">
+              <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-ellipsis-v"></i>
+                <!-- <span class="caret"></span> -->
+              </button>
+              <ul class="dropdown-menu">
+                <li><button><i class="fa fa-fire"></i> Edit Hotness</button></li>
+                <li><button><i class="fa fa-edit"></i> Edit Source</button></li>
+                <li><button><i class="fa fa-pencil-alt"></i> Edit Status</button></li>
+                <li><button><i class="fa fa-id-card-alt"></i> Edit Contact Type</button></li>
+                <li><button><i class="fa fa-user-cog"></i> Edit Assigned User</button></li>
+                <li><button><i class="fa fa-tag"></i> Add Tags</button></li>
+                <li><button><i class="fa fa-user-plus"></i> Add to Static List</button></li>
+                <li><button><i class="fa fa-trash"></i> Delete Contact</button></li>
+                
+              </ul>
+            </div>
+
+
+        </ul>
+      </div>
+      <!-- contact menu -->
+      <div class="contact-details">
+        <div class="contact-detail-contents">
+          <div class="ac-name-initial">
+            <span>{{this.contact.FirstName | slice:0:1}}</span>
+            <span>{{this.contact.LastName | slice:0:1}}</span>
+          </div>
+          <div class="ac-name">
+            <h2>{{this.contact.FirstName}}</h2>
+            <h2>{{this.contact.LastName}}</h2>
+          </div>
+          <div class="setting-ico">
+            <button type="button" class="setting-btn " data-toggle="tooltip" title="Set Favorites">
+              <i class="fa fa-cog"></i>
+            </button>
+           
+          </div>
+        </div>
+
+        <div class="tags" style="margin-bottom: 15px;">
+
+          <label class="control-label"><i class="fa fa-tags"></i> Tags</label>
+          <select multiple name="select" id="select1" class="form-control">
+            <option *ngFor="let tags of taglist" [value]="tags">{{tags}}</option>
+          </select>
+      </div>
+
+        <card cardTitle="Personal Information" isCollapse="false">
+          <div class="flex-main-wraper">
+            <div class="flex-view">
+              <label for="">First Name</label>
+              <p><i class="fa fa-user"></i>{{this.contact.FirstName}}</p>
+            </div>
+            <div class="flex-view">
+              <label for="">Last Name</label>
+              <p><i class="fa fa-user"></i> {{this.contact.LastName}}</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label">Hotness</label>
+            <select name="select" id="ddlHotness" class="form-control"
+                    [(ngModel)]="this.contact.HotnessLevel"
+                    [ngModelOptions]="{standalone: true}">
+              <option value="0" selected>Hotness Level</option>
+              <option *ngFor="let hotness of Hotness" value="{{hotness.DataValue}}">
+                 {{hotness.DisplayName}} </option>
+            </select>
+          </div>
+
+
+        </card>
+
+        <card cardTitle="Contact Information" isCollapse="false">
+          <div class="flex-main-wraper">
+            <div class="flex-view">
+              <label for="">Primary Email</label>
+              <p><i class="fa fa-envelope"></i>{{this.contact.PrimaryEmail}}</p>
+            </div>
+            <div class="flex-view">
+              <label for="">Secondary Email</label>
+              <p><i class="fa fa-envelope"></i>{{this.contact.SecondaryEmail}}</p>
+            </div>
+
+            <div class="flex-view">
+              <label for="">Mobile Phone</label>
+              <p><i class="fa fa-mobile"></i>{{this.contact.MobileNo}}</p>
+            </div>
+            <div class="flex-view">
+              <label for="">Home Phone</label>
+              <p><i class="fa fa-phone"></i>{{this.contact.MobileNo}}</p>
+            </div>
+
+            <div class="flex-view">
+              <label for="">Office Phone</label>
+              <p><i class="fa fa-phone"></i>{{this.contact.MobileNo}}</p>
+            </div>
+
+          </div>
+          <!-- flex view wraper -->
+        </card>
+ 
+
+        <card cardTitle="Addresses" isCollapse="false">
+
+          <div class="form-group">
+            <label class="control-label">Address Type</label>
+            <select name="select" id="select1" class="form-control">
+              <option *ngFor="let addressType of AddressType" value="{{addressType.DataValue}}">
+                {{addressType.DisplayName}} </option>       
+            </select>
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Address 1">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Address 2">
+          </div>
+
+          <div class="address-group">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="City">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="State">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Zip">
+            </div>
+          </div>
+
+          <div class="button-groups">
+          <div class="btn-wrap">
+            <button type="button" class="btn btn-success btn-with-icon">
+              <i class="fa fa-plus fa-fw"></i>Add New Address</button>  
+          </div>
+          <div class="btn-wrap">
+            <button type="button" class="btn btn-danger btn-with-icon">
+              <i class="fa fa-trash fa-fw"></i>Remove This Address </button>
+          </div>
+        </div>
+        <!-- button-wraper -->
+        </card>
+
+        <card cardTitle="Miscellaneous" isCollapse="false">
+          <div class="flex-main-wraper">
+            <div class="form-group">
+              <label for="birthday"><i class="fa fa-birthday-cake"></i> Birthday</label>
+              <input type="date" id="txtbirthday" 
+                    [ngModel] ="this.contact.BirthDate | date:'yyyy-MM-dd'"
+                    (ngModelChange)="this.contact.BirthDate = $event"
+                    class="form-control"/>
+            </div>
+
+            <div class="form-group">
+              <label for="Anniversary"><i class="fa fa-birthday-cake"></i> Anniversary</label>
+              <input type="date" class="form-control" id="txtAnniversary" 
+                    [ngModel] ="this.contact.AnniversaryDate | date:'yyyy-MM-dd'"
+                    (ngModelChange)="this.contact.AnniversaryDate = $event" />
+            </div>
+
+            <div class="form-group">
+              <label for="birthday"><i class="fa fa-user"></i> Spouse Name</label>
+              <input type="text" id="txtSpouseName" class="form-control"
+                     [(ngModel)]="this.contact.SpouseName" />
+            </div>
+
+            <div class="form-group">
+              <label for="Anniversary"><i class="fa fa-envelope"></i> Spouse Email</label>
+              <input type="text" class="form-control" id="txtSpouseEmail"
+                     [(ngModel)]="this.contact.SpouseEmail" />
+            </div>
+            <div class="form-group">
+              <label for="birthday"><i class="fa fa-phone"></i> Spouse Phone</label>
+              <input type="text" id="birthday" class="form-control"
+                    [(ngModel)]="this.contact.SpousePhone" />
+            </div>
+
+            <div class="form-group">
+              <label for="Anniversary"><i class="fa fa-birthday-cake"></i> Spouse Birthday</label>
+              <input type="date" class="form-control" id="dtSpouseBirthday"
+                      [ngModel] ="this.contact.SpouseBirthDay | date:'yyyy-MM-dd'"
+                      (ngModelChange)="this.contact.SpouseBirthDay = $event"/>
+            </div>
+
+            <div class="form-group">
+              <label for="birthday"><i class="fa fa-sliders-h"></i> Type</label>
+              <select class="form-control">
+                <option *ngFor="let type of Type" [value]="type"> {{type}} </option>
+         
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="Anniversary"><i class="fa fa-info-circle"></i> Status</label>
+              <select class="form-control"
+                      [(ngModel)]="this.contact.Status"
+                      [ngModelOptions]="{standalone: true}">
+                <option *ngFor="let status of Status" value="{{status.DataValue}}">
+                  {{status.DisplayName}}  
+                </option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="Anniversary"><i class="fa fa-id-card-alt"></i> Source</label>
+              <select class="form-control"
+                      [(ngModel)]="this.contact.Source"
+                      [ngModelOptions]="{standalone: true}">
+                <option *ngFor="let Source of source" value="{{Source.DataValue}}">
+                  {{Source.DisplayName}}
+                </option>       
+              </select>
+            </div>  
+
+            <div class="form-group">
+              <label for="Anniversary"><i class="fa fa-building"></i> Company</label>
+              <input type="text" class="form-control" name=""/>
+            </div> 
+
+            <div class="form-group">
+              <label for="Anniversary"><i class="fa fa-user"></i> Owner</label>
+              <span>Tahsin Ali Jafri</span>
+            </div>  
+
+            <div class="form-group">
+              <label for="Anniversary"><i class="fa fa-building"></i> Assigned To</label>
+              <select class="form-control">
+                <option *ngFor="let assign of assignedUserList" value="{{assign.DataValue}}">
+                  {{assign.DisplayName}}  
+                </option>     
+              </select>
+            </div> 
+
+            <div class="form-group" style="grid-template-columns:1fr;">
+              <label for="Anniversary"><i class="fa fa-users"></i> 
+                <switch switchName="multiple" theme="success" switchId="multiple2" multiple [checked]="true" style="vertical-align: -10px;"></switch> Shared With Team</label>              
+            </div> 
+          </div>
+          <div class="form-group">
+            <label for="Anniversary">Custom Field</label>
+           <input type="text" class="form-control" name=""/>
+          </div> 
+
+        </card>
+
+      </div>
+
+    </div>
+    <!-- col md 6 -->
+
+    <div class="col-md-6">
+      <div class="event-timeline-wraper">
+        <h3>EVENT TIMELINE</h3>
+        <div class="new-line">
+        <div class="btn-wrap division mr-15">
+          <button type="button" class="btn btn-success btn-with-icon">
+            <i class="fa fa-check fa-fw"></i>Add Event</button>
+        </div>
+        <div class="btn-group mr-15">
+          <button type="button" style="width:80px;" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            All
+            <span class="caret" style="margin-left:15px;"></span>
+          </button>
+          <ul class="dropdown-menu">
+            <li>
+              <a routerLink="#">Comments</a>
+            </li>
+            <li>
+              <a routerLink="#">Sent/Receive Email</a>
+            </li>
+            <li>
+              <a routerLink="#">Opened Email</a>
+            </li>            
+            <li>
+              <a routerLink="#">Clicked Email</a>
+            </li>
+            <li>
+              <a routerLink="#">Inbound Calls</a>
+            </li>
+            <li>
+              <a routerLink="#">Oubound Calls</a>
+            </li>
+            <li>
+              <a routerLink="#">Sent/Receive Text</a>
+            </li>
+            <li>
+              <a routerLink="#">Text Received</a>
+            </li>
+            <li>
+              <a routerLink="#">Text Sent</a>
+            </li>
+            <li>
+              <a routerLink="#">Direct Mail</a>
+            </li>
+            <li>
+              <a routerLink="#">Website Activity</a>
+            </li>
+          </ul>
+        </div>
+        <span> 2 Total Events</span>
+      </div>
+      <!-- new line -->
+      <div class="contact-details" style="margin-top:1em;">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Created By</th>
+              <th>Description</th>
+              <th>Created Date and Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of default_data;let index = index">
+              <td>{{item.type}}</td>
+              <td>{{item.Created_By}}</td>
+              <td>{{item.Description}}</td>
+              <td>{{item.Created_t_d}}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="show-items">
+          <div class="forms-group">
+          <label class="control-label">Recent Items</label>
+          <select name="select" id="select1" class="form-control" style="width:150px;">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="20">20</option>
+
+          </select>
+        </div>
+        <!-- form Group -->
+        </div>
+      </div>
+      <!-- contact details -->
+      </div>
+    </div>
+    <!-- col md 6 -->
+  </div>
+  <!-- row -->
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="task-detail-container">
+        <h3 class="text-primary">Task</h3>
+        <div class="new-line">
+          <div class="btn-wrap division mr-15">
+            <button type="button" class="btn btn-success btn-with-icon">
+              <i class="fa fa-check fa-fw"></i>Creat Task</button>
+          </div>
+          <div class="btn-group mr-15">
+            <button type="button" style="width:95px;" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Overdue
+              <span class="caret" style="margin-left:15px;"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <a routerLink="#">Currernt</a>
+              </li>
+              <li>
+                <a routerLink="#">All Upcomming</a>
+              </li>
+              <li>
+                <a routerLink="#">Overdue</a>
+              </li>            
+              <li>
+                <a routerLink="#">Complete</a>
+              </li>
+              
+            </ul>
+          </div>
+          <span> 2 Total Events</span>
+        </div>
+        <!-- new line -->
+        <div class="card">        
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>          
+                  <input class="checkbox" type="checkbox" id="color-checkbox1" checked>
+               <label class="check-label" for="color-checkbox1"></label>
+             </th>
+                <th>Type</th>
+                <th>Due Date</th>
+                <th>Assignee</th>
+                <th>Description</th>
+                <th>Category</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let task of Task;let index = index">
+                <td>{{index}}</td>
+                <td>{{task.type}}</td>
+                <td>{{task.Due_date}}</td>
+                <td>{{task.assignee}}</td>
+                <td>{{task.Description}}</td>
+                <td> {{task.Category}} </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="show-items">
+            <div class="forms-group">
+            <label class="control-label">
+              Items per page</label>
+            <select name="select" id="select1" class="form-control" style="width:150px;">
+              <option value="5">5</option>
+              <option value="10" selected>10</option>
+              <option value="20">20</option>
+  
+            </select>
+          </div>
+          <!-- form Group -->
+          </div>
+
+    </div>
+    <!-- card -->
+    </div>
+    <!-- task detail contaienr -->
+    </div>
+<!-- col md 12 -->
+</div>
+<!-- row -->
+
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="task-detail-container">
+      <h3 class="text-primary">CAMPAIGN COMMUNICATIONS</h3>
+      <div class="new-line">
+        <div class="btn-group mr-15">
+          <button type="button" style="min-width:80px;" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Incomplete
+            <span class="caret" style="margin-left:15px;"></span>
+          </button>
+          <ul class="dropdown-menu">
+            <li>
+              <a routerLink="#">Incomplete</a>
+            </li>
+            <li>
+              <a routerLink="#">Complete</a>
+            </li>
+          </ul>
+        </div>
+        <span> 0 Total Campaign Communications</span>
+      </div>
+      <!-- new line -->
+      <div class="card">        
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>          
+                <input class="checkbox" type="checkbox" id="color-checkbox1" checked>
+             <label class="check-label" for="color-checkbox1"></label>
+           </th>
+              <th>Compaign</th>
+              <th>Type</th>
+              <th>Send From</th>
+              <th>Template</th>
+              <th>Subject</th>
+              <th>Setup on Text Reply</th>
+              <th>Send At</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let compain of Compain;let index = index">
+              <td>{{index}}</td>
+              <td>{{compain.compain}}</td>
+              <td>{{compain.type}}</td>              
+              <td>{{compain.send_from}}</td>
+              <td>{{compain.template}}</td>
+              <td> {{compain.subject}} </td>
+              <td> {{compain.text_reply}} </td>
+              <td> {{compain.send_at}} </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="show-items">
+          <div class="forms-group">
+          <label class="control-label">
+            Items per page</label>
+          <select name="select" id="select1" class="form-control" style="width:150px;">
+            <option value="5">5</option>
+            <option value="10" selected>10</option>
+            <option value="20">20</option>
+
+          </select>
+        </div>
+        <!-- form Group -->
+        </div>
+
+  </div>
+  <!-- card -->
+  </div>
+  <!-- task detail contaienr -->
+  </div>
+<!-- col md 12 -->
+</div>
+<!-- row -->
+
+
+</div>
+<!-- containe fluid -->
+<script>
+  $(document).ready(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+  });
+</script>

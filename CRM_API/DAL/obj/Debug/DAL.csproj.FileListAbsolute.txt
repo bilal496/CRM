@@ -1,0 +1,16 @@
+C:\Users\Bilal Khan\source\repos\CRM\CRM_API\DAL\bin\Debug\DAL.exe.config
+C:\Users\Bilal Khan\source\repos\CRM\CRM_API\DAL\bin\Debug\DAL.exe
+C:\Users\Bilal Khan\source\repos\CRM\CRM_API\DAL\bin\Debug\DAL.pdb
+C:\Users\Bilal Khan\source\repos\CRM\CRM_API\DAL\bin\Debug\microsoft.practices.enterpriselibrary.common.dll
+C:\Users\Bilal Khan\source\repos\CRM\CRM_API\DAL\bin\Debug\microsoft.practices.enterpriselibrary.data.dll
+C:\Users\Bilal Khan\source\repos\CRM\CRM_API\DAL\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\Users\Bilal Khan\source\repos\CRM\CRM_API\DAL\bin\Debug\microsoft.practices.unity.dll
+C:\Users\Bilal Khan\source\repos\CRM\CRM_API\DAL\bin\Debug\microsoft.practices.unity.interception.dll
+C:\Users\Bilal Khan\source\repos\CRM\CRM_API\DAL\obj\Debug\DAL.exe.config
+C:\Users\Bilal Khan\source\repos\CRM\CRM_API\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\Bilal Khan\source\repos\CRM\CRM_API\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\Bilal Khan\source\repos\CRM\CRM_API\DAL\obj\Debug\DAL.exe
+C:\Users\Bilal Khan\source\repos\CRM\CRM_API\DAL\obj\Debug\DAL.pdb
+C:\Users\Bilal Khan\source\repos\CRM\CRM_API\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+C:\Users\Bilal Khan\source\repos\CRM\CRM_API\DAL\bin\Debug\BO.exe
+C:\Users\Bilal Khan\source\repos\CRM\CRM_API\DAL\bin\Debug\BO.pdb
